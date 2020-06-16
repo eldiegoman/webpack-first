@@ -177,3 +177,60 @@ module.exports = {
 		"build:dev": "webpack-dev-server --config ./config/dev/webpack.config.js"
 	}
 ```
+
+### Add webpack module replacement
+
+Update the webpack.config.js for the development environment.
+
+```javascript
+const path = require('path');
+const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
+module.exports = {
+	entry: {
+		index: path.resolve(__dirname, '../../src/index.js'),
+	},
+	mode: 'development',
+	output: {
+		path: path.resolve(__dirname, '../../dist/dev'),
+		filename: 'js/[name].js',
+	},
+	devServer: {
+		hot: true,
+		port: 3000,
+		open: true,
+	},
+	module: {
+		rules: [
+			{
+				test: /\.css$/,
+				use: ['style-loader', 'css-loader'],
+			},
+		],
+	},
+	plugins: [
+		new webpack.HotModuleReplacementPlugin(),
+		new HtmlWebpackPlugin({
+			title: 'Wepack First',
+		}),
+	],
+};
+```
+
+#### Add the next code to detect changes
+
+This code detects any changes in your code and updates the view in the browser without reloading the page
+
+```javascript
+const HotModuleReplacement = (dep) => {
+	if (module.hot) {
+		module.hot.accept('../index.js', function () {
+			// do something
+			dep();
+		});
+	}
+};
+
+export default HotModuleReplacement;
+```
