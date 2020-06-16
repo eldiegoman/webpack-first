@@ -1,6 +1,6 @@
 const HotModuleReplacement = (dep) => {
 	if (module.hot) {
-		module.hot.accept('../index.js', function () {
+		module.hot.accept('../js/home.js', function () {
 			// do something
 			dep();
 		});
