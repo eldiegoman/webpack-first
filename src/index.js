@@ -1,6 +1,8 @@
+import React from 'react';
+import { render } from 'react-dom';
+
 import Home from './js/home';
 import HotModuleReplacement from './utils/hotModuleReplacement';
 
-Home();
-
-HotModuleReplacement(Home);
+render(<Home />, document.getElementById('container'));
+//HotModuleReplacement(Home);

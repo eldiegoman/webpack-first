@@ -306,3 +306,22 @@ Add the loader in the module.rules section
 
     	npm i node-sass --save-dev --save-exact
     	npm i --save-dev --save-exact sass-loader
+
+### Add support for React
+
+#### Install preset
+
+    	npm i --save-dev --save-exact @babel/preset-react
+
+#### Add preset to .babelrc file
+
+```json
+{
+	"plugins": ["@babel/plugin-transform-runtime"],
+	"presets": ["@babel/preset-env", "@babel/preset-env"]
+}
+```
+
+#### Install react dependences
+
+    	npm i --save --save-exact react react-dom

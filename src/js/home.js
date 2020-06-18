@@ -1,10 +1,8 @@
 import '../css/home.css';
-
-console.log('home');
+import React from 'react';
 
 const Home = () => {
-	const title = document.createElement('<h1>Guide to use webpack</h1>');
-	document.body.append(title);
+	return <h1>Webpack First</h1>;
 };
 
 export default Home;
