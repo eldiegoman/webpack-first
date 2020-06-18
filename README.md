@@ -279,3 +279,30 @@ Add the loader in the module.rules section
 	"presets": ["@babel/preset-env"]
 }
 ```
+
+### Add support for images and fonts
+
+#### Install next dependences
+
+    	npm i --save-dev --save-exact url-loader
+
+    	npm i --save-dev --save-exact file-loader
+
+#### Add loader to webpack.config
+
+```json
+{
+	"test": /\.jpg|png|gif|woff|eot|ttf|svg|mp4|webm$/,
+	"use": {
+		"loader": "url-loader",
+		"options": {
+			"limit": 90000
+		}
+	}
+}
+```
+
+### Add support for sass
+
+    	npm i node-sass --save-dev --save-exact
+    	npm i --save-dev --save-exact sass-loader

@@ -1,0 +1,16 @@
+@font-face {
+	font-family: 'pt-sans';
+	src: url('../fonts/PT_Sans/PTSans-Bold.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+$font-stack: 'pt-sans';
+$primary-color: #333;
+
+#container {
+	max-width: 1024px;
+	display: flex;
+	font: 100% $font-stack;
+	color: $primary-color;
+}

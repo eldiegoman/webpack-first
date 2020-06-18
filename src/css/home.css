@@ -13,12 +13,12 @@ body {
 	font-size: 40px;
 	font-size: 40px;
 	font-family: Arial;
-	font-family: system-ui;
+	font-family: 'pt-sans';
 	color: white;
 	animation: 300ms latido infinite;
 }
 
-@keyframes latido {
+/* @keyframes latido {
 	0% {
 		transform: scale(1.1);
 	}
@@ -28,4 +28,4 @@ body {
 	100% {
 		transform: scale(1.1);
 	}
-}
+} */

@@ -24,15 +24,29 @@ module.exports = {
 				exclude: /node_modules/,
 			},
 			{
+				test: /\.scss$/,
+				use: ['style-loader', 'css-loader', 'sass-loader'],
+			},
+			{
 				test: /\.css$/,
 				use: ['style-loader', 'css-loader'],
+			},
+			{
+				test: /\.jpg|png|gif|woff|eot|ttf|svg|mp4|webm$/,
+				use: {
+					loader: 'url-loader',
+					options: {
+						limit: 90000,
+					},
+				},
 			},
 		],
 	},
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
 		new HtmlWebpackPlugin({
-			title: 'Wepack First',
+			title: 'webpack-dev-server',
+			template: path.resolve(__dirname, '../../src/index.html'),
 		}),
 	],
 };
